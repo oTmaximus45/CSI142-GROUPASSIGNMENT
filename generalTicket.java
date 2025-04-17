@@ -3,7 +3,7 @@ public class generalTicket extends Ticket {
 
     // Constructor
     public GeneralTicket(String ticketType, double price, String eventDate, String seating,String ticketHolder) {
-        super(ticketType, price, eventDate,ticketHolder);
+        super(ticketType, price, eventDate);
         this.seating = seating;
     }
 
