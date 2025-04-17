@@ -16,11 +16,14 @@ public class generalTicket extends Ticket {
         this.seating = seating;
     }
 
+    //@Override method to print ticket details
     @Override
     public void getTicketDetails() {
-        System.out.println("General Ticket: " + getTicketType());
-        System.out.println("Price: P" + getPrice());
-        System.out.println("Event Date: " + getEventDate());
-        System.out.println("Seating: " + seating);
+        System.out.print("General Ticket: " + getTicketType());
+        System.out.print("Price: P" + getPrice());
+        System.out.print("Event Date: " + getEventDate());
+        System.out.print("Seating: " + getSeating());
     }
+    //void method printing a sentence declaring the ticket details in sequence
+    System.out.print( "You have the + getTicketType() + " which cost " + getPrice() + "for the seat at"  + getSeating();
 }
