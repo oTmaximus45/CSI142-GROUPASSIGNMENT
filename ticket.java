@@ -2,6 +2,7 @@ public abstract class ticket {
     private String ticketType;
     private double price;
     private String eventDate;
+    private String ticketHolder;
     
     // Constructor
     public Ticket(String ticketType, double price, String eventDate) {
