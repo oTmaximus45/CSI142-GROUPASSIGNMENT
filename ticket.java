@@ -2,7 +2,7 @@ public abstract class ticket {
     private String ticketType;
     private double price;
     private String eventDate;
-    private String ticketHolder;
+    
     
     // Constructor
     public Ticket(String ticketType, double price, String eventDate) {
@@ -12,9 +12,12 @@ public abstract class ticket {
     }
 
     // Getters and Setters
+
+    
     public String getTicketType() {
         return ticketType;
     }
+    
 
     public void setTicketType(String ticketType) {
         this.ticketType = ticketType;
