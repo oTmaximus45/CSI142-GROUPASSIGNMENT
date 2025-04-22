@@ -24,7 +24,7 @@ public class Sorter {
         Ticket key = arr[i];
         int j = i - 1;
         // Move elements that are bigger than 'key' one position ahead
-        while (j >= 0 && arr[j].getPrice > key.getPrice()) {
+        while (j >= 0 && arr[j].getPrice() > key.getPrice()) {
         arr[j + 1] = arr[j];
         j--;
         }
