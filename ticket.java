@@ -2,17 +2,22 @@ public abstract class ticket {
     private String ticketType;
     private double price;
     private String eventDate;
+    private String holderName;
     
     // Constructor
-    public Ticket(String ticketType, double price, String eventDate) {
+    public Ticket(String ticketType, double price, String eventDate,String holderName) {
         this.ticketType = ticketType;
         this.price = price;
         this.eventDate = eventDate;
+        this.holderName=holderName;
     }
 
     // Getters and Setters
     public String getTicketType() {
         return ticketType;
+    }
+    public String getHolderName(String holderName){
+        this.holderName=holderNme;
     }
 
     public void setTicketType(String ticketType) {
