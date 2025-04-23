@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class TicketUtils {
 
@@ -54,4 +55,10 @@ public class TicketUtils {
         }
         return -1;
     }
+
+  //ticket Search by ticket name
+public static void search(ArrayList<Ticket>ticket, String ticketName){
+Scanner sacn = new Scanner(System.in);
+for (int i = 0; i<tickets.size(); i++){
+System.out.print( "Ticket name: " + getTicketName() "/n"); 
 }
