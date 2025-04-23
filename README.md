@@ -1,2 +1,2 @@
 # CSI142-GROUPASSIGNMENT
-AN OOP GROUP ASSIGNMENT
+A ticket system written in java that implements OOP
