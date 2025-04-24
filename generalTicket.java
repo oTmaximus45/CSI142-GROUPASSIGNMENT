@@ -6,6 +6,9 @@ public class generalTicket extends Ticket {
     if( ticketType
         super(ticketType, price, eventDate);
         this.seating = seating;
+         if (price < 0) {
+            throw new IllegalArgumentException("Price cannot be negative.");
+        }
     }
 
     // Getters and Setters
