@@ -1,4 +1,4 @@
-public abstract class ticket {
+public class ticket {
     private String ticketType;
     private double price;
     private String eventDate;
@@ -40,7 +40,12 @@ public abstract class ticket {
         this.eventDate = eventDate;
     }
 
-    // Abstract method to get ticket details
-    public abstract void getTicketDetails();
+// method to get ticket details
+    public String getTicketDetails(){
+        return "ticket Details:\n" + 
+               "name:  "+ getHolderName();"\n"
+               "eventDate:   "+ getEventDate();"\n"
+               "ticket type:  " + getTicketType();"\n"
+               "price:   "+  getPrice();"\n"
 }
 
