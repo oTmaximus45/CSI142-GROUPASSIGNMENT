@@ -2,11 +2,9 @@ public class generalTicket extends Ticket {
     private String seating; // Seating info for general ticket
 
     // Constructor
-    public GeneralTicket(String ticketType, double price, String eventDate, String seating) throw new InvalidException{
-    if( ticketType
+    public GeneralTicket(String ticketType, double price, String eventDate, String seating) throw InvalidException{
         super(ticketType, price, eventDate);
         this.seating = seating;
-    }
 
     // Getters and Setters
     public String getSeating() {
