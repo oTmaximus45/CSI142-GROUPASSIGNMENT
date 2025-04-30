@@ -41,11 +41,16 @@ public class ticket {
     }
 
 // method to get ticket details
-    public String getTicketDetails(){
-        return "ticket Details:\n" + 
-               "name:  "+ getHolderName();"\n"
-               "eventDate:   "+ getEventDate();"\n"
-               "ticket type:  " + getTicketType();"\n"
-               "price:   "+  getPrice();"\n"
-}
+   public String getTicketDetails() {
+        return "Ticket Details:\n" + 
+               "Name: " + getHolderName() + "\n" +
+               "Event Date: " + getEventDate() + "\n" +
+               "Ticket Type: " + getTicketType() + "\n" +
+               "Price: " + getPrice();
+    }
 
+    @Override
+    public String toString() {
+        return getTicketDetails();
+    }
+}
