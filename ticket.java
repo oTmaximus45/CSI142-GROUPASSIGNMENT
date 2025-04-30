@@ -9,19 +9,24 @@ public class ticket {
         this.ticketType = ticketType;
         this.price = price;
         this.eventDate = eventDate;
-        this.holderName=holderName;
+        this.holderName = holderName;
     }
 
     // Getters and Setters
     public String getTicketType() {
         return ticketType;
     }
-    public String getHolderName(String holderName){
-        this.holderName=holderNme;
-    }
 
     public void setTicketType(String ticketType) {
         this.ticketType = ticketType;
+    } 
+    
+     public String getHolderName() {
+        return holderName;
+    }
+
+    public String setHolderName(String holderName){
+        this.holderName = holderNme;
     }
 
     public double getPrice() {
