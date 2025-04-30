@@ -1,43 +1,64 @@
 import java.util.ArrayList;
 import java.util.List;
 
+import java.util.ArrayList;
+
 public class MainApp {
     public static void main(String[] args) {
-        List<Ticket> ticketList = new ArrayList<>();
+        ArrayList<Ticket> tickets = new ArrayList<>();
+        
+        try {
+            // Create regular tickets
+            tickets.add(new Ticket("Maun Festival", 250.0, "2023-11-15", "John Doe"));
+            tickets.add(new Ticket("Gabs Carnival", 300.0, "2023-12-01", "Jane Smith"));
+            
+            // Create VIP ticket
+            tickets.add(new VIPTicket("VIP Concert", 500.0, "2023-12-25", "Alice Wonder", "Backstage Pass"));
+            
+            // Create General ticket with exception handling
+            try {
+                tickets.add(new GeneralTicket("Sports Event", 150.0, "2023-11-20", "Bob Builder", "Section A"));
+                // This would throw an exception:
+                // tickets.add(new GeneralTicket("Invalid Event", -50.0, "2023-11-20", "Test User", "Section B"));
+            } catch (NegativePriceException e) {
+                System.err.println("Error creating ticket: " + e.getMessage());
+            }
 
-        ticketList.add(new Ticket("Maun Festival", 250, "27-12-2025", "Monkey D. Luffy" ));
-        ticketList.add(new Ticket("Gabs Carnival", 300, "19-04-2025", "Derek John"));
-        ticketList.add(new Ticket("Francistown Expo", 200, "03-05-2025", "Nala Kim"));
-        ticketList.add(new Ticket("Kgalagadi Bash", 180, "05-10-2025", "Nico Robin"));
-        ticketList.add(new Ticket("Palapye Music Show", 275, "13-12-2025", "Drew Phillips"));
+            // Display original tickets
+            System.out.println("=== Original Tickets ===");
+            printTickets(tickets);
 
-        System.out.println("=== Original Tickets ===");
-        printList(ticketList);
+            // Sort by price using Selection Sort
+            TicketUtils.selectionSortByPrice(tickets);
+            System.out.println("\n=== After Selection Sort (by Price) ===");
+            printTickets(tickets);
 
-        // Sort using Selection Sort
-        TicketUtils.selectionSortByPrice(ticketList);
-        System.out.println("\n=== After Selection Sort (by Price) ===");
-        printList(ticketList);
+            // Search using Binary Search (requires sorted by price)
+            double searchPrice = 300.0;
+            int priceIndex = TicketUtils.binarySearchByPrice(tickets, searchPrice);
+            System.out.println("\nBinary Search for price " + searchPrice + ": " + 
+                (priceIndex != -1 ? "Found at index " + priceIndex : "Not found"));
 
-        // Sort using Insertion Sort
-        TicketUtils.insertionSortByID(ticketList); // This is just to show both methods work
-        System.out.println("\n=== After Insertion Sort (by Price) ===");
-        printList(ticketList);
+            // Sort by name using Insertion Sort
+            TicketUtils.insertionSortByName(tickets);
+            System.out.println("\n=== After Insertion Sort (by Holder Name) ===");
+            printTickets(tickets);
 
-        // Linear Search
-        String searchEvent = "Gabs Carnival";
-        int index = TicketUtils.linearSearch(ticketList, searchEvent);
-        System.out.println("\nLinear Search for \"" + searchEvent + "\": Index = " + index);
+            // Search using Linear Search
+            String searchName = "Jane Smith";
+            int nameIndex = TicketUtils.linearSearchByName(tickets, searchName);
+            System.out.println("\nLinear Search for name '" + searchName + "': " + 
+                (nameIndex != -1 ? "Found at index " + nameIndex : "Not found"));
 
-        // Binary Search (requires sorted list)
-        double searchPrice = 275;
-        int binaryIndex = TicketUtils.binarySearch(ticketList, searchPrice);
-        System.out.println("Binary Search for Price " + searchPrice + ": Index = " + binaryIndex);
+        } catch (Exception e) {
+            System.err.println("An error occurred: " + e.getMessage());
+        }
     }
 
-    public static void printList(List<Ticket> list) {
-        for (Ticket t : list) {
-            System.out.println(t);
+    private static void printTickets(ArrayList<Ticket> tickets) {
+        for (Ticket ticket : tickets) {
+            System.out.println(ticket.getTicketDetails());
+            System.out.println("----------------------");
         }
     }
 }
