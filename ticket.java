@@ -26,7 +26,7 @@ public class ticket {
     }
 
     public String setHolderName(String holderName){
-        this.holderName = holderNme;
+        this.holderName = holderName;
     }
 
     public double getPrice() {
