@@ -15,10 +15,9 @@ public class VIPTicket extends Ticket {
     public void setVipAccess(String vipAccess) {
         this.vipAccess = vipAccess;
     }
+        @Override
     public String getTicketDetails() {
-        System.out.println("VIP Ticket: " + getTicketType());
-        System.out.println("Price: P" + getPrice());
-        System.out.println("Event Date: " + getEventDate());
-        System.out.println("VIP Access: " + (vipAccess != null && !vipAccess.isEmpty() ? "Yes" : "No"));
+        return super.getTicketDetails() + "\n" +
+               "VIP Access: " + (vipAccess != null && !vipAccess.isEmpty() ? "Yes" : "No");
     }
 }
