@@ -5,9 +5,9 @@ public class generalTicket extends Ticket {
     public GeneralTicket(String ticketType, double price, String eventDate, String seating) throws InvalidException{
         super(ticketType, price, eventDate);
         this.seating = seating;
+      
         if (price < 0) {
             throw new IllegalArgumentException("Price cannot be negative.");
-        }
     }
 
     // Getters and Setters
