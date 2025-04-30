@@ -51,17 +51,8 @@ public class TicketUtils {
         if (currentPrice == price) return mid;
         else if (currentPrice < price) low = mid + 1;
         else high = mid - 1;
-    }
-    return -1;
-}
-
-
-  //ticket Search by holdername
-
-    public static void search(ArrayList<Ticket>tickets){
-    Scanner scan = new Scanner(System.in);
-        for (int i = 0; i<tickets.size(); i++){
-        System.out.print( "Ticket name: " + tickets.get(i).getHolderName() + "\n"); 
         }
+        return -1;
     }
+
 }
