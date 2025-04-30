@@ -18,12 +18,12 @@ public class TicketUtils {
         }
     }
 
-    // Insertion Sort by ticketID
-    public static void insertionSortByID(ArrayList<Ticket> tickets) {
+    // Insertion Sort by holder name
+    public static void insertionSortByName(ArrayList<Ticket> tickets) {
         for (int i = 1; i < tickets.size(); i++) {
             Ticket key = tickets.get(i);
             int j = i - 1;
-            while (j >= 0 && tickets.get(j).getTicketID() > key.getTicketID()) {
+            while (j >= 0 && tickets.get(j).getHolderName().compareToIgnoreCase(key.getHolderName()) > 0) {
                 tickets.set(j + 1, tickets.get(j));
                 j--;
             }
@@ -34,27 +34,27 @@ public class TicketUtils {
     // Linear Search by name
     public static int linearSearchByName(ArrayList<Ticket> tickets, String name) {
         for (int i = 0; i < tickets.size(); i++) {
-            if (tickets.get(i).getName().equalsIgnoreCase(name)) {
+            if (tickets.get(i).getHolderName().equalsIgnoreCase(name)) {
                 return i;
             }
         }
         return -1;
     }
 
-    // Binary Search by ticket ID
-    public static int binarySearchByID(ArrayList<Ticket> tickets, int ticketID) {
-        int low = 0, high = tickets.size() - 1;
-
-        while (low <= high) {
-            int mid = (low + high) / 2;
-            int currentID = tickets.get(mid).getTicketID();
-
-            if (currentID == ticketID) return mid;
-            else if (currentID < ticketID) low = mid + 1;
-            else high = mid - 1;
-        }
-        return -1;
+   // Binary Search by price (requires sorted list)
+   public static int binarySearchByPrice(ArrayList<Ticket> tickets, double price) {
+    int low = 0, high = tickets.size() - 1;
+    while (low <= high) {
+        int mid = (low + high) / 2;
+        double currentPrice = tickets.get(mid).getPrice();
+        
+        if (currentPrice == price) return mid;
+        else if (currentPrice < price) low = mid + 1;
+        else high = mid - 1;
     }
+    return -1;
+}
+
 
   //ticket Search by holdername
 
